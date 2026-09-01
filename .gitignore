@@ -3,6 +3,9 @@ goodreads_reviews_spoiler.json/
 goodreads_reviews_spoiler.json
 goodreads_reviews_spoiler.json.gz
 
+# Per-question machine metadata. Theory/README has the dataset link instead.
+**/metadata.json
+
 __pycache__/
 *.py[cod]
 .venv/

@@ -32,7 +32,7 @@ Source page: [UCSD McAuley Lab Goodreads datasets](https://mcauleylab.ucsd.edu/p
 | Path | What it is |
 |---|---|
 | `code/` | Python CLI that draws every question |
-| `output/` | Graphs, viva cards, and `.txt` write-ups per question |
+| `output/` | Graphs, viva cards, and `.txt` write-ups per question (no `metadata.json`) |
 | `PL_Assign3 (1).pdf` | Assignment questions |
 
 ## How to run (VS Code terminal)
