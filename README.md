@@ -62,7 +62,3 @@ python main.py A
 ```
 
 Needs: Python 3, pandas, numpy, matplotlib, scikit-learn (`pip install -r requirements.txt` from `code/`).
-
-## Viva
-
-Start at `output/00_viva_map/viva_map.png`, then open that question’s `viva_card.png`.
