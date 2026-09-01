@@ -44,21 +44,21 @@ Derived features on the table: none derived for this question
 ## 5. Formula and working
 - (no numeric formula for this question — it is a concept / pipeline question)
 
-If the examiner asks you to “work it”, use the numbered boxes on `viva_card.png` and plug the example numbers. Do not only recite the symbol.
+If the examiner asks you to “work it”, use the numbered boxes on `bettergraph_viva.png` and plug the example numbers. Do not only recite the symbol.
 
 ## 6. How the graph was made
 A directed tree is drawn with matplotlib patches: one node per JSON field, arrows for containment. This is a schema graph, not a histogram.
 
 matplotlib draws two files from the same idea:
 - graph.png — the actual graph
-- viva_card.png — the same graph plus numbered boxes you can point at
+- bettergraph_viva.png — the same graph plus numbered boxes you can point at
 - explanation.txt and how_code_worked.txt — the write-up (plain text, not markdown)
 
 ## 7. What the graph represents
 The schema of one JSONL record as a graph. Edges show containment; the two bottom nodes are how spoiler labels are stored.
 
 ## 8. Graph visualization
-Open `viva_card.png` first. Speak boxes 1 → 2 → 3 → 4. That order is formula / working / meaning / edge case. Use `graph.png` only if they want an uncluttered chart.
+Open `bettergraph_viva.png` first. Speak boxes 1 → 2 → 3 → 4. That order is formula / working / meaning / edge case. Use `graph.png` only if they want an uncluttered chart.
 
 ## 9. Graph structure
 Directed tree: REVIEW root → seven field nodes; review_sentences → flag-0 and flag-1 sentence nodes

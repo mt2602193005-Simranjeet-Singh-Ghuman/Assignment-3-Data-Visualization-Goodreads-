@@ -46,21 +46,21 @@ Derived features on the table: `n_reviews`, `mean_rating`, `mean_length`, `mean_
 - `example count 75 -> 0.455`
 - `example rating 4.11 -> 0.524`
 
-If the examiner asks you to “work it”, use the numbered boxes on `viva_card.png` and plug the example numbers. Do not only recite the symbol.
+If the examiner asks you to “work it”, use the numbered boxes on `bettergraph_viva.png` and plug the example numbers. Do not only recite the symbol.
 
 ## 6. How the graph was made
 After the feature table exists, a matplotlib axes is created and the drawing function for this question fills it (boxes, bars, points, or a pipeline diagram). Chart class: `radar / spider chart`. plots.minmax on each metric column of the radar table, then polar plot of the 0–1 values.
 
 matplotlib draws two files from the same idea:
 - graph.png — the actual graph
-- viva_card.png — the same graph plus numbered boxes you can point at
+- bettergraph_viva.png — the same graph plus numbered boxes you can point at
 - explanation.txt and how_code_worked.txt — the write-up (plain text, not markdown)
 
 ## 7. What the graph represents
 Several book-level metrics on one shape, which is only fair after 0–1 scaling.
 
 ## 8. Graph visualization
-Open `viva_card.png` first. Speak boxes 1 → 2 → 3 → 4. That order is formula / working / meaning / edge case. Use `graph.png` only if they want an uncluttered chart.
+Open `bettergraph_viva.png` first. Speak boxes 1 → 2 → 3 → 4. That order is formula / working / meaning / edge case. Use `graph.png` only if they want an uncluttered chart.
 
 ## 9. Graph structure
 4 axes (count, rating, length, spoiler ratio), each min–max scaled to [0,1], one polygon per book

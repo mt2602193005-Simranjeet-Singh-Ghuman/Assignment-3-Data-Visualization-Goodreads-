@@ -13,7 +13,7 @@ def _finish(analysis, qid, fig_graph, fig_card, **kwargs):
     # One question folder always gets the clean graph, the viva card, and the write-up.
     out = question_dir(qid)
     save_fig(fig_graph, out / "graph.png")
-    save_fig(fig_card, out / "viva_card.png")
+    save_fig(fig_card, out / "bettergraph_viva.png")
     kwargs.pop("n_rows", None)
     write_pack(out, qid, analysis=analysis, **kwargs)
     print(f"  saved Q{qid:02d} -> {out}")
@@ -714,7 +714,7 @@ def run_map(analysis):
 
     ax.text(
         0.50, 0.07,
-        "Viva order: this map → that question’s viva_card.png → speak boxes 1–4 "
+        "Viva order: this map → that question’s bettergraph_viva.png → speak boxes 1–4 "
         "(formula → plug numbers → what the graph shows → edge case).",
         ha="center", color=MUTED, fontsize=9, transform=ax.transAxes,
     )
@@ -745,7 +745,7 @@ def run_map(analysis):
              fontsize=13, fontweight="bold", transform=ax2.transAxes)
     ax2.text(
         0.50, 0.24,
-        "1. Open that folder’s viva_card.png — do not improvise the formula.\n"
+        "1. Open that folder’s bettergraph_viva.png — do not improvise the formula.\n"
         "2. Read the formula out loud, then plug the worked numbers on the card.\n"
         "3. Point at the graph: “this axis / colour / bar is that formula.”\n"
         "4. If they ask how code did it → how_code_worked.txt (same folder).\n"

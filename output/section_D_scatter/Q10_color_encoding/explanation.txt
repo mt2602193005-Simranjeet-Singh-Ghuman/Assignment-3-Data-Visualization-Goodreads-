@@ -45,21 +45,21 @@ Derived features on the table: `review_length`, `rating`, `has_spoiler`
 - `colour(has_spoiler=True) = red`
 - `colour(False) = blue`
 
-If the examiner asks you to “work it”, use the numbered boxes on `viva_card.png` and plug the example numbers. Do not only recite the symbol.
+If the examiner asks you to “work it”, use the numbered boxes on `bettergraph_viva.png` and plug the example numbers. Do not only recite the symbol.
 
 ## 6. How the graph was made
 After the feature table exists, a matplotlib axes is created and the drawing function for this question fills it (boxes, bars, points, or a pipeline diagram). Chart class: `scatter with categorical colour`. Same scatter helper with color_by_spoiler=True, plotting two groups with different colours and a legend.
 
 matplotlib draws two files from the same idea:
 - graph.png — the actual graph
-- viva_card.png — the same graph plus numbered boxes you can point at
+- bettergraph_viva.png — the same graph plus numbered boxes you can point at
 - explanation.txt and how_code_worked.txt — the write-up (plain text, not markdown)
 
 ## 7. What the graph represents
 An extra variable (spoiler) that position alone could not show.
 
 ## 8. Graph visualization
-Open `viva_card.png` first. Speak boxes 1 → 2 → 3 → 4. That order is formula / working / meaning / edge case. Use `graph.png` only if they want an uncluttered chart.
+Open `bettergraph_viva.png` first. Speak boxes 1 → 2 → 3 → 4. That order is formula / working / meaning / edge case. Use `graph.png` only if they want an uncluttered chart.
 
 ## 9. Graph structure
 Same x=rating, y=length; hue = has_spoiler (blue vs red)

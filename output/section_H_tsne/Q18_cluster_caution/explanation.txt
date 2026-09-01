@@ -45,21 +45,21 @@ Derived features on the table: `TF-IDF (300)`, `t-SNE x,y`, `has_spoiler (colour
 - `embedding: R^300 → R^2`
 - `colour is NOT an input to t-SNE`
 
-If the examiner asks you to “work it”, use the numbered boxes on `viva_card.png` and plug the example numbers. Do not only recite the symbol.
+If the examiner asks you to “work it”, use the numbered boxes on `bettergraph_viva.png` and plug the example numbers. Do not only recite the symbol.
 
 ## 6. How the graph was made
 After the feature table exists, a matplotlib axes is created and the drawing function for this question fills it (boxes, bars, points, or a pipeline diagram). Chart class: `t-SNE scatter`. Analysis.tsne_main() takes a balanced text sample, TfidfVectorizer(max_features=300), TSNE(perplexity=30). Colour is applied after the embedding.
 
 matplotlib draws two files from the same idea:
 - graph.png — the actual graph
-- viva_card.png — the same graph plus numbered boxes you can point at
+- bettergraph_viva.png — the same graph plus numbered boxes you can point at
 - explanation.txt and how_code_worked.txt — the write-up (plain text, not markdown)
 
 ## 7. What the graph represents
 Wording similarity. It does not represent rating or a guaranteed spoiler classifier.
 
 ## 8. Graph visualization
-Open `viva_card.png` first. Speak boxes 1 → 2 → 3 → 4. That order is formula / working / meaning / edge case. Use `graph.png` only if they want an uncluttered chart.
+Open `bettergraph_viva.png` first. Speak boxes 1 → 2 → 3 → 4. That order is formula / working / meaning / edge case. Use `graph.png` only if they want an uncluttered chart.
 
 ## 9. Graph structure
 2D points from TF-IDF; colour = has_spoiler; axes unlabelled on purpose

@@ -45,21 +45,21 @@ Derived features on the table: `text (joined sentences)`, `TF-IDF`, `t-SNE coord
 - `TF-IDF(word, review) = tf × log(N / df)`
 - `t-SNE minimises KL(P_highD || Q_2D)`
 
-If the examiner asks you to “work it”, use the numbered boxes on `viva_card.png` and plug the example numbers. Do not only recite the symbol.
+If the examiner asks you to “work it”, use the numbered boxes on `bettergraph_viva.png` and plug the example numbers. Do not only recite the symbol.
 
 ## 6. How the graph was made
 sklearn TSNE embedding plotted as a scatter. Colour is has_spoiler, applied after fit.
 
 matplotlib draws two files from the same idea:
 - graph.png — the actual graph
-- viva_card.png — the same graph plus numbered boxes you can point at
+- bettergraph_viva.png — the same graph plus numbered boxes you can point at
 - explanation.txt and how_code_worked.txt — the write-up (plain text, not markdown)
 
 ## 7. What the graph represents
 Wording similarity in 2D. Nearby points used similar words. Axes are not rating or length.
 
 ## 8. Graph visualization
-Open `viva_card.png` first. Speak boxes 1 → 2 → 3 → 4. That order is formula / working / meaning / edge case. Use `graph.png` only if they want an uncluttered chart.
+Open `bettergraph_viva.png` first. Speak boxes 1 → 2 → 3 → 4. That order is formula / working / meaning / edge case. Use `graph.png` only if they want an uncluttered chart.
 
 ## 9. Graph structure
 2D scatter of reviews; x,y = t-SNE coordinates; colour = has_spoiler (not an input)

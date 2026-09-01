@@ -1,4 +1,4 @@
-"""Chart questions. Each function draws a clean graph.png and a viva_card.png with notes."""
+"""Chart questions. Each function draws a clean graph.png and a bettergraph_viva.png with notes."""
 
 from __future__ import annotations
 

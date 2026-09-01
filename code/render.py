@@ -362,21 +362,21 @@ Derived features on the table: {feat}
 ## 5. Formula and working
 {formula_block}
 
-If the examiner asks you to “work it”, use the numbered boxes on `viva_card.png` and plug the example numbers. Do not only recite the symbol.
+If the examiner asks you to “work it”, use the numbered boxes on `bettergraph_viva.png` and plug the example numbers. Do not only recite the symbol.
 
 ## 6. How the graph was made
 {how_graph_made}
 
 matplotlib draws two files from the same idea:
 - graph.png — the actual graph
-- viva_card.png — the same graph plus numbered boxes you can point at
+- bettergraph_viva.png — the same graph plus numbered boxes you can point at
 - explanation.txt and how_code_worked.txt — the write-up (plain text, not markdown)
 
 ## 7. What the graph represents
 {what_represents}
 
 ## 8. Graph visualization
-Open `viva_card.png` first. Speak boxes 1 → 2 → 3 → 4. That order is formula / working / meaning / edge case. Use `graph.png` only if they want an uncluttered chart.
+Open `bettergraph_viva.png` first. Speak boxes 1 → 2 → 3 → 4. That order is formula / working / meaning / edge case. Use `graph.png` only if they want an uncluttered chart.
 
 ## 9. Graph structure
 {graph_structure}
@@ -443,7 +443,7 @@ def metadata_json(qid: int, payload: dict) -> dict:
         "pdf_question": QUESTIONS[qid]["pdf"],
         "files": [
             "graph.png",
-            "viva_card.png",
+            "bettergraph_viva.png",
             "explanation.txt",
             "how_code_worked.txt",
             "metadata.json",

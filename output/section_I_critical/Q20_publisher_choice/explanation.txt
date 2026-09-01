@@ -45,21 +45,21 @@ Derived features on the table: `mean_spoiler_ratio`, `n_reviews`, `mean_rating`,
 - `spoiler_prone(book) = mean_i (k_i / n_i)`
 - `require a minimum review count before ranking`
 
-If the examiner asks you to “work it”, use the numbered boxes on `viva_card.png` and plug the example numbers. Do not only recite the symbol.
+If the examiner asks you to “work it”, use the numbered boxes on `bettergraph_viva.png` and plug the example numbers. Do not only recite the symbol.
 
 ## 6. How the graph was made
 After the feature table exists, a matplotlib axes is created and the drawing function for this question fills it (boxes, bars, points, or a pipeline diagram). Chart class: `paired barh + radar`. groupby book_id → mean spoiler_ratio with a min-review threshold; barh for the ranking; radar_polygon for the same books' other metrics after min-max.
 
 matplotlib draws two files from the same idea:
 - graph.png — the actual graph
-- viva_card.png — the same graph plus numbered boxes you can point at
+- bettergraph_viva.png — the same graph plus numbered boxes you can point at
 - explanation.txt and how_code_worked.txt — the write-up (plain text, not markdown)
 
 ## 7. What the graph represents
 Which books attract spoiler-heavy reviews, and whether those books are otherwise notable.
 
 ## 8. Graph visualization
-Open `viva_card.png` first. Speak boxes 1 → 2 → 3 → 4. That order is formula / working / meaning / edge case. Use `graph.png` only if they want an uncluttered chart.
+Open `bettergraph_viva.png` first. Speak boxes 1 → 2 → 3 → 4. That order is formula / working / meaning / edge case. Use `graph.png` only if they want an uncluttered chart.
 
 ## 9. Graph structure
 Left: books ranked by mean spoiler_ratio. Right: radar of count/rating/length/ratio
