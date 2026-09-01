@@ -1,0 +1,47 @@
+# How the code worked — Q06
+
+## Dataset (length, keep, drop)
+The file on disk is **1.75 GB**, about **1.38 million reviews** (UCSD / Wan et al.: ~25,000 books, ~19,000 users, ~17.6 million sentences).
+
+This run **kept the first 50,000 reviews** (`MAX_ROWS = 50,000`), which is about **3.62%** of the full set. That gave **16,589 books** and **558 users** in memory.
+
+**What was not used, and how it was “removed”:**
+- The remaining ~1,330,000 reviews were **never loaded**. The reader stops at `MAX_ROWS` and closes the file. Nothing is deleted from disk; we just stop reading.
+- Why: a typical laptop cannot hold 1.75 GB of nested Python objects (that is Q3).
+- Order: JSONL is read from the top, so this is a **first-N sample**, not a random sample. Early users can be over-represented (this run has only 558 users). That is a Q21 talking point, not a bug.
+- Blank lines are skipped. Records with 0 sentences are **kept**, with `spoiler_ratio = 0.0` (Q5), not dropped.
+- Scatter plots **draw** at most 8,000 points so the figure is readable; medians and correlations still use all 50,000 loaded rows.
+- t-SNE uses a further wording subsample (about 2,000 reviews, and ~800 for the perplexity panel). The other loaded rows still feed histograms, boxplots, and the heatmap.
+- There is **no book-title field** in this JSON. We did not remove titles; they were never in the metadata.
+
+## Step-by-step workflow
+value_counts on df['rating'], then ax.bar. The mode bar is coloured gold. Ratings stay integers; we do not treat them as a continuous histogram of floats.
+
+## Metadata used
+`rating`
+
+For this question, each JSON field is treated as follows:
+- `user_id` — **not plotted**. Who wrote the review. We only use it to count unique users in the footer. It is never an axis.
+- `timestamp` — **not plotted**. The review date. None of the PDF questions are about time, so we leave it unused.
+- `review_id` — **not plotted**. Unique id for one review. Used to count reviews per book. Not plotted.
+- `book_id` — **not plotted**. Which book was reviewed. Needed for leaderboards, radar, and spoiler-prone ranking.
+- `rating` — **used**. Integer stars 0–5. Used whenever the question is about scores.
+- `has_spoiler` — **not plotted**. True/False for the whole review. Used for colour, boxplot groups, and t-SNE colour.
+- `review_sentences` — **not plotted**. List of [flag, text] pairs. This is where length, spoiler flags, ratio, and t-SNE text come from.
+
+## Formula
+- `mode = argmax count(rating)`
+- `this sample mode = 4`
+
+## How the graph was drawn
+After the feature table exists, a matplotlib axes is created and the drawing function for this question fills it (boxes, bars, points, or a pipeline diagram). Chart class: `histogram (discrete bar)`. value_counts on df['rating'], then ax.bar. The mode bar is coloured gold. Ratings stay integers; we do not treat them as a continuous histogram of floats.
+
+## Functions / classes
+- `Analysis.rating_counts`
+- `plots.rating_hist`
+
+## Safeguards
+- xticks fixed at 0–5
+
+## Honest line for viva
+We did **not** load 1.38 million reviews. We streamed and stopped at `MAX_ROWS`. The leftover file is unread, still sitting on disk.

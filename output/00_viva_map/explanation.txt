@@ -1,0 +1,22 @@
+# Master viva map
+
+Open `viva_map.png` first. Open `how_to_speak.png` if you need the terminal commands.
+
+## Dataset
+Full file ≈ 1.75 GB / 1.38 million reviews. This project kept the first 50,000 (`MAX_ROWS`).
+The rest were not loaded (unread, not deleted).
+
+## CLI (what to type after `python main.py`)
+- `4` — only question 4
+- `A` — section A only (questions 1, 2, 3). **A is not all.**
+- `all` — questions 1–21 plus this map
+- `map` — only this poster
+- `help` — print the option list again
+- `q` — quit
+
+## VS Code
+```
+cd "C:\Users\ASUS\Desktop\Prog Lab Assignment\Assignment 3\code"
+python main.py
+```
+First time, type `all`.

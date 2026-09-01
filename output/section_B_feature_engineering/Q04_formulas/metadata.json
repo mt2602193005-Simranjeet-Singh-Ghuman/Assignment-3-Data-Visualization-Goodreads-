@@ -1,0 +1,39 @@
+{
+  "question": 4,
+  "section": "B",
+  "title": "Review length and spoiler ratio formulas",
+  "pdf_question": "How are the review_length and spoiler_ratio features computed? Write down the formula for each.",
+  "files": [
+    "graph.png",
+    "viva_card.png",
+    "explanation.txt",
+    "how_code_worked.txt",
+    "metadata.json"
+  ],
+  "chart_class": "histograms",
+  "graph_structure": "Two histograms: review_length (left) and spoiler_ratio (right); gold line = worked example",
+  "features": [
+    "review_length",
+    "spoiler_ratio",
+    "n_sentences",
+    "n_spoiler_sents"
+  ],
+  "metadata_fields": [
+    "review_sentences"
+  ],
+  "formulas": [
+    "review_length = sum(len(sentence_text) for sentence in review_sentences)",
+    "spoiler_ratio = k / n   if n > 0 else 0.0",
+    "n = len(review_sentences)",
+    "k = count of sentences whose flag == 1"
+  ],
+  "n_rows": 50000,
+  "file_gb": 1.75,
+  "full_corpus_reviews_approx": 1380000,
+  "n_books_in_sample": 16589,
+  "n_users_in_sample": 558,
+  "example_n": 21,
+  "example_k": 14,
+  "example_length": 2054,
+  "example_ratio": 0.6667
+}

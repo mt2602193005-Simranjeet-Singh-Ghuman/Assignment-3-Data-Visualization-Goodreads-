@@ -1,0 +1,39 @@
+{
+  "question": 15,
+  "section": "G",
+  "title": "Why radar metrics are min-max scaled",
+  "pdf_question": "Why were the metrics normalized to a 0-1 range before plotting on the radar chart, instead of using their original scales (e.g. review count 50-500 vs. average rating 0-5)?",
+  "files": [
+    "graph.png",
+    "viva_card.png",
+    "explanation.txt",
+    "how_code_worked.txt",
+    "metadata.json"
+  ],
+  "chart_class": "radar / spider chart",
+  "graph_structure": "4 axes (count, rating, length, spoiler ratio), each min\u2013max scaled to [0,1], one polygon per book",
+  "features": [
+    "n_reviews",
+    "mean_rating",
+    "mean_length",
+    "mean_spoiler_ratio"
+  ],
+  "metadata_fields": [
+    "book_id",
+    "rating",
+    "review_sentences",
+    "has_spoiler"
+  ],
+  "formulas": [
+    "x_norm = (x - min) / (max - min)   if max != min else 0.5",
+    "example count 75 -> 0.455",
+    "example rating 4.11 -> 0.524"
+  ],
+  "n_rows": 50000,
+  "file_gb": 1.75,
+  "full_corpus_reviews_approx": 1380000,
+  "n_books_in_sample": 16589,
+  "n_users_in_sample": 558,
+  "example_count_norm": 0.4545,
+  "example_rating_norm": 0.5238
+}

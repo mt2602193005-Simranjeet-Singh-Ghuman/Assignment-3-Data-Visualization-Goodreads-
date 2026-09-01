@@ -1,0 +1,31 @@
+{
+  "question": 21,
+  "section": "I",
+  "title": "Sample conclusions vs the full UCSD file",
+  "pdf_question": "This assignment uses synthetic sample data with the same schema as the real dataset. How might your conclusions change if you re-ran the notebook on the real UCSD dataset?",
+  "files": [
+    "graph.png",
+    "viva_card.png",
+    "explanation.txt",
+    "how_code_worked.txt",
+    "metadata.json"
+  ],
+  "chart_class": "grouped bar chart (log scale)",
+  "graph_structure": "Grouped bars: reviews / books / users for this sample vs the published full file; y is log so 1.38M does not hide 50k",
+  "features": [
+    "all derived features, as sample estimates"
+  ],
+  "metadata_fields": [
+    "full JSONL schema"
+  ],
+  "formulas": [
+    "sample estimate \u2260 population value"
+  ],
+  "n_rows": 50000,
+  "file_gb": 1.75,
+  "full_corpus_reviews_approx": 1380000,
+  "n_books_in_sample": 16589,
+  "n_users_in_sample": 558,
+  "sample_n": 50000,
+  "published_reviews": 1380000
+}

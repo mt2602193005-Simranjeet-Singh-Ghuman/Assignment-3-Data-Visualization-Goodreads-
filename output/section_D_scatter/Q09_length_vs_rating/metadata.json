@@ -1,0 +1,33 @@
+{
+  "question": 9,
+  "section": "D",
+  "title": "Scatter: review length vs rating",
+  "pdf_question": "Does the scatter plot of review length vs rating show a clear linear relationship? Justify your answer.",
+  "files": [
+    "graph.png",
+    "viva_card.png",
+    "explanation.txt",
+    "how_code_worked.txt",
+    "metadata.json"
+  ],
+  "chart_class": "scatter plot",
+  "graph_structure": "x = rating (jittered), y = review_length, one point \u2248 one review (subsampled)",
+  "features": [
+    "review_length",
+    "rating"
+  ],
+  "metadata_fields": [
+    "rating",
+    "review_sentences"
+  ],
+  "formulas": [
+    "r(review_length, rating) = 0.073"
+  ],
+  "n_rows": 50000,
+  "file_gb": 1.75,
+  "full_corpus_reviews_approx": 1380000,
+  "n_books_in_sample": 16589,
+  "n_users_in_sample": 558,
+  "r_length_rating": 0.0726,
+  "scatter_n": 8000
+}

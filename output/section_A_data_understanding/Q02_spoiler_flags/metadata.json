@@ -1,0 +1,32 @@
+{
+  "question": 2,
+  "section": "A",
+  "title": "has_spoiler vs sentence spoiler flags",
+  "pdf_question": "What is the difference between the has_spoiler field (per-review boolean) and the individual spoiler flags (0/1) inside review_sentences (per-sentence)? Based on how the two fields are related, would you expect has_spoiler=True whenever at least one sentence is flagged 1?",
+  "files": [
+    "graph.png",
+    "viva_card.png",
+    "explanation.txt",
+    "how_code_worked.txt",
+    "metadata.json"
+  ],
+  "chart_class": "bar chart",
+  "graph_structure": "Two bars: agreement count vs mismatch count",
+  "features": [
+    "n_spoiler_sents"
+  ],
+  "metadata_fields": [
+    "has_spoiler",
+    "review_sentences"
+  ],
+  "formulas": [
+    "expected: has_spoiler == True  iff  n_spoiler_sents >= 1"
+  ],
+  "n_rows": 50000,
+  "file_gb": 1.75,
+  "full_corpus_reviews_approx": 1380000,
+  "n_books_in_sample": 16589,
+  "n_users_in_sample": 558,
+  "n_agree": 50000,
+  "n_mismatch": 0
+}

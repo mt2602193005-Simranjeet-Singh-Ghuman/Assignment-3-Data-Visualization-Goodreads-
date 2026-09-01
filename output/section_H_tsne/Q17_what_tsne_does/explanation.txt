@@ -1,0 +1,75 @@
+# Q17 — What t-SNE does to TF-IDF vectors
+
+## Question (from the PDF)
+What does the t-SNE algorithm do – how does it convert high-dimensional TF-IDF vectors (300 dimensions) into a 2D plot?
+
+## 1. Direct answer
+t-SNE converts each review's high-dimensional TF-IDF vector (up to 300 dimensions) into two coordinates so that reviews with similar wording stay close together. It is a visualisation embedding, not a classifier. graph.png is that 2D scatter.
+
+## 2. How long is the dataset, and what was left out?
+The file on disk is **1.75 GB**, about **1.38 million reviews** (UCSD / Wan et al.: ~25,000 books, ~19,000 users, ~17.6 million sentences).
+
+This run **kept the first 50,000 reviews** (`MAX_ROWS = 50,000`), which is about **3.62%** of the full set. That gave **16,589 books** and **558 users** in memory.
+
+**What was not used, and how it was “removed”:**
+- The remaining ~1,330,000 reviews were **never loaded**. The reader stops at `MAX_ROWS` and closes the file. Nothing is deleted from disk; we just stop reading.
+- Why: a typical laptop cannot hold 1.75 GB of nested Python objects (that is Q3).
+- Order: JSONL is read from the top, so this is a **first-N sample**, not a random sample. Early users can be over-represented (this run has only 558 users). That is a Q21 talking point, not a bug.
+- Blank lines are skipped. Records with 0 sentences are **kept**, with `spoiler_ratio = 0.0` (Q5), not dropped.
+- Scatter plots **draw** at most 8,000 points so the figure is readable; medians and correlations still use all 50,000 loaded rows.
+- t-SNE uses a further wording subsample (about 2,000 reviews, and ~800 for the perplexity panel). The other loaded rows still feed histograms, boxplots, and the heatmap.
+- There is **no book-title field** in this JSON. We did not remove titles; they were never in the metadata.
+
+## 3. Workflow — how the code worked
+1. Stream the JSONL file line by line (`json.loads` on one review at a time).
+2. Stop at `MAX_ROWS`. The rest of the 1.75 GB file is unread, not deleted.
+3. From `review_sentences`, build `n_sentences`, `review_length` (character count), and `spoiler_ratio = k/n` (0.0 if n is 0).
+4. Keep the original metadata (`rating`, `has_spoiler`, `book_id`, …) next to those features in a table.
+5. This question then does: TfidfVectorizer(max_features=300) on joined sentence text, then sklearn TSNE(n_components=2, perplexity=30, init='pca') on the dense matrix. has_spoiler is used only to colour points.
+
+## 4. How metadata was used
+Fields named in this question: `review_sentences`
+
+For this question, each JSON field is treated as follows:
+- `user_id` — **not plotted**. Who wrote the review. We only use it to count unique users in the footer. It is never an axis.
+- `timestamp` — **not plotted**. The review date. None of the PDF questions are about time, so we leave it unused.
+- `review_id` — **not plotted**. Unique id for one review. Used to count reviews per book. Not plotted.
+- `book_id` — **not plotted**. Which book was reviewed. Needed for leaderboards, radar, and spoiler-prone ranking.
+- `rating` — **not plotted**. Integer stars 0–5. Used whenever the question is about scores.
+- `has_spoiler` — **not plotted**. True/False for the whole review. Used for colour, boxplot groups, and t-SNE colour.
+- `review_sentences` — **used**. List of [flag, text] pairs. This is where length, spoiler flags, ratio, and t-SNE text come from.
+
+Derived features on the table: `text (joined sentences)`, `TF-IDF`, `t-SNE coordinates`
+
+## 5. Formula and working
+- `TF-IDF(word, review) = tf × log(N / df)`
+- `t-SNE minimises KL(P_highD || Q_2D)`
+
+If the examiner asks you to “work it”, use the numbered boxes on `viva_card.png` and plug the example numbers. Do not only recite the symbol.
+
+## 6. How the graph was made
+sklearn TSNE embedding plotted as a scatter. Colour is has_spoiler, applied after fit.
+
+matplotlib draws two files from the same idea:
+- graph.png — the actual graph
+- viva_card.png — the same graph plus numbered boxes you can point at
+- explanation.txt and how_code_worked.txt — the write-up (plain text, not markdown)
+
+## 7. What the graph represents
+Wording similarity in 2D. Nearby points used similar words. Axes are not rating or length.
+
+## 8. Graph visualization
+Open `viva_card.png` first. Speak boxes 1 → 2 → 3 → 4. That order is formula / working / meaning / edge case. Use `graph.png` only if they want an uncluttered chart.
+
+## 9. Graph structure
+2D scatter of reviews; x,y = t-SNE coordinates; colour = has_spoiler (not an input)
+
+**Class:** `t-SNE scatter`
+
+## 10. Feature analysis
+TF-IDF turns wording into numbers. t-SNE only rearranges those numbers for a plot. Spoiler colour is painted afterwards; t-SNE did not use has_spoiler as an input.
+
+## 11. How to say this in viva
+1. Say text → 300-D TF-IDF → these 2D points.
+2. Say 'preserves neighbours, not global distances'.
+3. Say axes are not rating or length.

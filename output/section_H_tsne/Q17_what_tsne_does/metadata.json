@@ -1,0 +1,35 @@
+{
+  "question": 17,
+  "section": "H",
+  "title": "What t-SNE does to TF-IDF vectors",
+  "pdf_question": "What does the t-SNE algorithm do \u2013 how does it convert high-dimensional TF-IDF vectors (300 dimensions) into a 2D plot?",
+  "files": [
+    "graph.png",
+    "viva_card.png",
+    "explanation.txt",
+    "how_code_worked.txt",
+    "metadata.json"
+  ],
+  "chart_class": "t-SNE scatter",
+  "graph_structure": "2D scatter of reviews; x,y = t-SNE coordinates; colour = has_spoiler (not an input)",
+  "features": [
+    "text (joined sentences)",
+    "TF-IDF",
+    "t-SNE coordinates"
+  ],
+  "metadata_fields": [
+    "review_sentences"
+  ],
+  "formulas": [
+    "TF-IDF(word, review) = tf \u00d7 log(N / df)",
+    "t-SNE minimises KL(P_highD || Q_2D)"
+  ],
+  "n_rows": 50000,
+  "file_gb": 1.75,
+  "full_corpus_reviews_approx": 1380000,
+  "n_books_in_sample": 16589,
+  "n_users_in_sample": 558,
+  "tsne_n": 2000,
+  "tsne_features": 300,
+  "perplexity": 30
+}
